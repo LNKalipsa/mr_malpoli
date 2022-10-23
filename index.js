@@ -1,5 +1,4 @@
-
-//token : MTAzMjIxMjQwNzU5MTkwMzI3Mg.GTM3Iq.9y5nK-nOmlahIBz9ctX_4qgM-c-Ptsr0I2bKvo
+const botConfig = require('./data.json')
 
 const { Client, GatewayIntentBits } = require("discord.js");
 const client = new Client({
@@ -11,11 +10,13 @@ const client = new Client({
         GatewayIntentBits.GuildMembers
     ]
 });
-const roleToAddId = '';
-const requiredRoleId = '';
-const channelId = '';
-const serveurId = '';
-const token = '';
+const roleToAddId = botConfig.roleToAddId;
+const requiredRoleId = botConfig.requiredRoleId;
+const channelId = botConfig.channelId;
+const serveurId = botConfig.serveurId;
+const token = botConfig.token;
+
+helloWords = botConfig.helloWords;
 
 client.on("ready", () => {
     console.log('bot opérationnel');
@@ -71,7 +72,7 @@ function removeRole() {
     var now = new Date();
     let hours = now.getHours();
     
-    if(hours === 16){
+    if(hours === 17){
         const guild = client.guilds.cache.get(serveurId);
         guild.members.fetch().then((members) => {
             members.forEach(member => {

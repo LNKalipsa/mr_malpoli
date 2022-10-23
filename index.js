@@ -10,10 +10,10 @@ const client = new Client({
         GatewayIntentBits.GuildMembers
     ]
 });
-const roleToAddId = botConfig.roleToAddId;
-const requiredRoleId = botConfig.requiredRoleId;
-const channelId = botConfig.channelId;
-const serveurId = botConfig.serveurId;
+const roleToAddId = botConfig.configPortland.roleToAddId;
+const requiredRoleId = botConfig.configPortland.requiredRoleId;
+const channelId = botConfig.configPortland.channelId;
+const serveurId = botConfig.configPortland.serveurId;
 const token = botConfig.token;
 
 helloWords = botConfig.helloWords;
@@ -22,7 +22,7 @@ client.on("ready", () => {
     console.log('bot opérationnel');
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
 
 
 //événement déclenché à chaque fois que le bot détecte un message envoyé dans le salon
@@ -60,7 +60,7 @@ client.on("messageCreate", message => {
 
 });
 
-const interval = 5000; //1h = 3 600 000
+const interval = 3600000; //1h = 3 600 000
 
 
 setInterval(() => {
@@ -72,11 +72,12 @@ function removeRole() {
     var now = new Date();
     let hours = now.getHours();
     
-    if(hours === 17){
+    if(hours === 3){
         const guild = client.guilds.cache.get(serveurId);
         guild.members.fetch().then((members) => {
             members.forEach(member => {
                 member.roles.remove(roleToAddId);
+                console.log('rôles retirés');
             })
         });
     }

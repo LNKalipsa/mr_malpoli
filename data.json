@@ -1,0 +1,37 @@
+{
+    "configTest":{
+        "roleToAddId":"1032560432000540673",
+        "requiredRoleId":"980920774498086933",
+        "channelId":"980919991761240124",
+        "serveurId":"960162514409226281"
+    },
+
+    "configPortland":{
+        "roleToAddId":"741322586276888637",
+        "requiredRoleId":"808799161981599754",
+        "channelId":"741322589099524187",
+        "serveurId":"741322586260111419"
+    },
+    
+
+    "helloWords":[
+        "bonjour",
+        "salut",
+        "hello",
+        "hola",
+        "holà",
+        "ayo",
+        "bonsoir",
+        "coucou",
+        "hey",
+        "yo",
+        "wsh",
+        "wesh",
+        "hi",
+        "slt",
+        "chalut",
+        "bjr",
+        "heyo",
+        "yop"
+    ]
+}

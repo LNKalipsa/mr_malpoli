@@ -11,46 +11,17 @@ const client = new Client({
         GatewayIntentBits.GuildMembers
     ]
 });
-/**
- * Constantes pour Portland
-
-
- */
-
-/**
- * Constantes pour serveur test
- */
 const roleToAddId = '';
 const requiredRoleId = '';
 const channelId = '';
 const serveurId = '';
-
-const helloWords = [
-    'bonjour',
-    'salut',
-    'hello',
-    'hola',
-    'holà',
-    'ayo',
-    'bonsoir',
-    'coucou',
-    'hey',
-    'yo',
-    'wsh',
-    'wesh',
-    'hi',
-    'slt',
-    'chalut',
-    'bjr',
-    'heyo',
-    'yop',
-]
+const token = '';
 
 client.on("ready", () => {
     console.log('bot opérationnel');
 });
 
-client.login("MTAzMjIxMjQwNzU5MTkwMzI3Mg.GTM3Iq.9y5nK-nOmlahIBz9ctX_4qgM-c-Ptsr0I2bKvo");
+client.login(token);
 
 
 //événement déclenché à chaque fois que le bot détecte un message envoyé dans le salon

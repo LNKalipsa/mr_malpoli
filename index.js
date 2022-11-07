@@ -24,19 +24,33 @@ client.on("ready", () => {
 
 client.login(process.env.TOKEN);
 
-
-//événement déclenché à chaque fois que le bot détecte un message envoyé dans le salon
 client.on("messageCreate", message => {
     if(message.author.bot) return;
-
+/**
+ * PING PONG AVEC LE BOT :
+ */ 
     if(message.content === "ping"){
-        message.reply("pong");
+        if(pingers[message.author.id] !== undefined){
+            pingers[message.author.id] += 1;
+            if(pingers[message.author.id] === 3){
+                message.reply("Hey ! Fous moi un peu la paix <@" + message.author.id + "> 😡")
+            }else{
+                message.reply("pong");
+            }
+        }else{
+            pingers[message.author.id] = 1;
+            message.reply("pong");
+        }
     }
-
+/**
+ * MENTION :
+ */ 
     if(message.content === "mention") {
-        message.reply("Mention d'un utilisateur : <@" + message.author.id + ">\nMention d'un salon : <#" + message.channel.id + ">");
+        message.reply("C'est : <@" + message.author.id + ">\nqui pollue <#" + message.channel.id + ">");
     }
-
+/**
+ * TEST DE POLITESSE :
+ */ 
     let userId = message.author.id;
     const guild = client.guilds.cache.get(serveurId);
 
@@ -60,9 +74,11 @@ client.on("messageCreate", message => {
 
 });
 
+
+/**
+ * RESET DU RÔLE TOUS LES JOURS A 3H :
+ */ 
 const interval = 3600000; //1h = 3 600 000
-
-
 setInterval(() => {
 
     removeRole();
@@ -83,6 +99,9 @@ function removeRole() {
     }
 }
 
+/**
+ * TEST DES MOTS AUTORISES :
+ */ 
 function isWordInString(word, message) {
     const regStart = new RegExp('^[\.,?!:;"\' -]*' + word + '[\.,?!:;"\' -]+');
     const regContent = new RegExp('[\.,?!:;"\' -]+' + word + '[\.,?!:;"\' -]+');

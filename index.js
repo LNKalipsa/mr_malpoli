@@ -15,7 +15,7 @@ const requiredRoleId = botConfig.configPortland.requiredRoleId;
 const channelId = botConfig.configPortland.channelId;
 const serveurId = botConfig.configPortland.serveurId;
 const token = botConfig.token;
-
+let pingers = [];
 helloWords = botConfig.helloWords;
 
 client.on("ready", () => {
@@ -33,7 +33,10 @@ client.on("messageCreate", message => {
         if(pingers[message.author.id] !== undefined){
             pingers[message.author.id] += 1;
             if(pingers[message.author.id] === 3){
-                message.reply("Hey ! Fous moi un peu la paix <@" + message.author.id + "> 😡")
+                message.reply("Hey ! Fous moi un peu la paix <@" + message.author.id + "> 😡");
+            }else if(pingers[message.author.id] === 6){
+                message.reply("Je t'ai dis de me lâcher la grappe ! <@" + message.author.id + ">😡😡😡");
+                pingers[message.author.id] = 0;
             }else{
                 message.reply("pong");
             }

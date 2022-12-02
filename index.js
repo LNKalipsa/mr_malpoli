@@ -26,7 +26,31 @@ client.login(process.env.TOKEN);
 
 client.on("messageCreate", message => {
     if(message.author.bot) return;
-
+/**
+ * PING PONG AVEC LE BOT :
+ */ 
+//     if(message.content === "ping"){
+//         if(pingers[message.author.id] !== undefined){
+//             pingers[message.author.id] += 1;
+//             if(pingers[message.author.id] === 3){
+//                 message.reply("Hey ! Fous moi un peu la paix <@" + message.author.id + "> 😡");
+//             }else if(pingers[message.author.id] === 6){
+//                 message.reply("Je t'ai dis de me lâcher la grappe ! <@" + message.author.id + ">😡😡😡");
+//                 pingers[message.author.id] = 0;
+//             }else{
+//                 message.reply("pong");
+//             }
+//         }else{
+//             pingers[message.author.id] = 1;
+//             message.reply("pong");
+//         }
+//     }
+/**
+ * MENTION :
+ */ 
+//     if(message.content === "mention") {
+//         message.reply("C'est : <@" + message.author.id + ">\nqui pollue <#" + message.channel.id + ">");
+//     }
 /**
  * TEST DE POLITESSE :
  */ 
